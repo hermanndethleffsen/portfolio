@@ -18,10 +18,10 @@ import Image15 from '../images/portfolio/Conroo_Plakat.jpg';
 import Image16 from '../images/portfolio/Kippe-Weg_Plakat.jpg';
 import Image17 from '../images/portfolio/Sauf-das-Meer-leer.jpg';
 import Image18 from '../images/portfolio/Happy-BirthdayTorte.jpg';
-import Image19 from '../images/portfolio/GlückwunschRot_Karte.jpg';
+import Image19 from '../images/portfolio/GlueckwunschRot_Karte.jpg';
 import Image20 from '../images/portfolio/Torte_Karte.jpg';
 import Image21 from '../images/portfolio/Hafenbar.jpg';
-import Image22 from '../images/portfolio/Audi_Galamenü.jpg';
+import Image22 from '../images/portfolio/Audi_Galamenu.jpg';
 import Image23 from '../images/portfolio/The-Future-is-Female_Gelb.jpg';
 import Image24 from '../images/portfolio/Audi_Einladungskarte.jpg';
 import Image25 from '../images/portfolio/The-Future-is-Female_Schwarz.jpg';
@@ -74,10 +74,8 @@ const SmallText = styled.p`
 
 const Image = styled.img`
   grid-column: ${({ start, end }) => `${start || 1} / ${end || 6}`};
-
   ${({ rowStart, rowEnd }) =>
     !!rowStart && !!rowEnd ? `grid-row: ${rowStart} / ${rowEnd}` : undefined};
-  background: red;
 `;
 
 const Portfolio = () => {

@@ -14,10 +14,10 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route exact path="/" element={<About />} />
-        <Route path="/quote" element={<Quote />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/skills" element={<Skills />} />
+        <Route exact path="/portfolio" element={<About />} />
+        <Route path="/portfolio/quote" element={<Quote />} />
+        <Route path="/portfolio/work" element={<Portfolio />} />
+        <Route path="/portfolio/skills" element={<Skills />} />
       </Routes>
       <Footer />
     </Router>
