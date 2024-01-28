@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.ddec91c7.css",
-    "main.js": "/portfolio/static/js/main.b67ecd72.js",
+    "main.js": "/portfolio/static/js/main.c4dea3d3.js",
     "static/media/film.mp4": "/portfolio/static/media/film.c72b21846f24939e4cf4.mp4",
     "static/media/potrait.jpg": "/portfolio/static/media/potrait.5264cdfc776d993fe543.jpg",
     "static/media/Architektur.jpg": "/portfolio/static/media/Architektur.fefc19d6a7ada5e6e3ab.jpg",
@@ -61,10 +61,10 @@
     "static/media/PWCINDERBLOX.ttf": "/portfolio/static/media/PWCINDERBLOX.4b1167fe9341a7d5fb07.ttf",
     "index.html": "/portfolio/index.html",
     "main.ddec91c7.css.map": "/portfolio/static/css/main.ddec91c7.css.map",
-    "main.b67ecd72.js.map": "/portfolio/static/js/main.b67ecd72.js.map"
+    "main.c4dea3d3.js.map": "/portfolio/static/js/main.c4dea3d3.js.map"
   },
   "entrypoints": [
     "static/css/main.ddec91c7.css",
-    "static/js/main.b67ecd72.js"
+    "static/js/main.c4dea3d3.js"
   ]
 }
