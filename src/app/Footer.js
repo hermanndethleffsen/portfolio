@@ -13,6 +13,11 @@ const Container = styled.footer`
   padding: 0px 60px 0px 55px;
   justify-content: space-between;
   margin-top: 50px;
+  @media screen and (max-width: 835px) {
+    flex-direction: column;
+    padding: 30px;
+    align-items: stretch;
+  }
 `;
 
 const SocialContainer = styled.div`

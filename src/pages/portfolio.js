@@ -42,37 +42,55 @@ import Image39 from '../images/portfolio/Abstaktion.jpg';
 import Image40 from '../images/portfolio/Wohnzimmer_Zeichnung.jpg';
 import Image41 from '../images/portfolio/Diskusswerfer.jpg';
 import Image42 from '../images/portfolio/Badezimmer_Zeichnung.jpg';
+import ScrollButton from '../app/ScrollButton';
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Content = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  column-gap: 53px;
-  row-gap: 56px;
+  column-gap: 50px;
+  row-gap: 50px;
   position: relative;
   width: 100vw;
+  max-width: 100vw;
+  @media screen and (max-width: 835px) {
+    column-gap: 30px;
+    row-gap: 30px;
+  }
 `;
 
 const EmptyDiv = styled.div`
-    grid-column-start: ${({ start }) => start || 1};
-    grid-column-end: ${({ end }) => end || 6}
-    background: blue;
-    ${({ rowStart, rowEnd }) => (!!rowStart && !!rowEnd ? `grid-row: ${rowStart} / ${rowEnd}` : undefined)};
-
+  position: relative;
+  grid-column-start: ${({ start }) => start || 1};
+  grid-column-end: ${({ end }) => end || 6};
+  ${({ rowStart, rowEnd }) =>
+    !!rowStart && !!rowEnd ? `grid-row: ${rowStart} / ${rowEnd}` : undefined};
 `;
 
 const Text = styled.p`
   font-family: PWCinderblox;
-  font-size: 77px;
+  font-size: 4vw;
   margin: 0;
+  width: max-content;
+  overflow: hidden;
 `;
 
 const SmallText = styled.p`
   margin: 0;
   font-family: Monte Reg;
   font-size: 25px;
+  max-width: 420px;
+  margin-top: 20px;
 `;
 
 const Image = styled.img`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
   grid-column: ${({ start, end }) => `${start || 1} / ${end || 6}`};
   ${({ rowStart, rowEnd }) =>
     !!rowStart && !!rowEnd ? `grid-row: ${rowStart} / ${rowEnd}` : undefined};
@@ -81,148 +99,158 @@ const Image = styled.img`
 const Portfolio = () => {
   return (
     <Container>
-      <Image src={Image1} start="1" end="4" />
-      <EmptyDiv start="4" end="6">
-        <Text>
-          LOGO <br /> DESIGN
-        </Text>
-      </EmptyDiv>
+      <Content>
+        <Image src={Image1} start="1" end="4" />
+        <EmptyDiv start="4" end="6">
+          <Text>
+            LOGO <br /> DESIGN
+          </Text>
+        </EmptyDiv>
 
-      <EmptyDiv start="1" end="3" />
-      <Image src={Image2} start="3" end="4" />
-      <EmptyDiv start="4" end="6" />
+        <EmptyDiv start="1" end="3" />
+        <Image src={Image2} start="3" end="4" />
+        <EmptyDiv start="4" end="6" />
 
-      <EmptyDiv start="1" end="3" />
-      <Image src={Image3} start="3" end="4" rowStart="3" rowEnd="4" />
-      <Image src={Image4} start="4" end="6" rowStart="3" rowEnd="5" />
-      <Image src={Image5} start="3" end="4" rowStart="4" rowEnd="5" />
+        <EmptyDiv start="1" end="3" />
+        <Image src={Image3} start="3" end="4" rowStart="3" rowEnd="4" />
+        <Image src={Image4} start="4" end="6" rowStart="3" rowEnd="5" />
+        <Image src={Image5} start="3" end="4" rowStart="4" rowEnd="5" />
 
-      <Image src={Image6} start="1" end="4" />
+        <Image src={Image6} start="1" end="4" />
 
-      <EmptyDiv start="1" end="4" />
-      <Image src={Image7} start="4" end="6" />
+        <EmptyDiv start="1" end="4" />
+        <Image src={Image7} start="4" end="6" />
 
-      <Image src={Image8} start="1" end="4" />
-      <EmptyDiv start="4" end="6">
-        <Text style={{ transform: 'rotate(-90deg) translate(-200px, -200px)' }}>
-          MAGAZIN/BUCH <br /> GESTALTUNG
-        </Text>
-      </EmptyDiv>
+        <Image src={Image8} start="1" end="4" />
+        <EmptyDiv
+          start="4"
+          end="6"
+          style={{ writingMode: 'vertical-rl', rotate: '180deg' }}
+        >
+          <Text style={{ textAlign: 'right' }}>
+            MAGAZIN/BUCH <br /> GESTALTUNG
+          </Text>
+        </EmptyDiv>
 
-      <Image src={Image9} start="1" end="4" />
-      <EmptyDiv start="4" end="6" />
+        <Image src={Image9} start="1" end="4" />
+        <EmptyDiv start="4" end="6" />
 
-      <Image src={Image10} start="1" end="3" />
-      <Image src={Image11} start="3" end="4" />
-      <EmptyDiv start="4" end="6" />
+        <Image src={Image10} start="1" end="3" />
+        <Image src={Image11} start="3" end="4" />
+        <EmptyDiv start="4" end="6" />
 
-      <EmptyDiv start="1" end="3">
-        <Text style={{ transform: 'rotate(-90deg) translate(0, -200px)' }}>
-          PLAKATGESTALTUNG
-        </Text>
-      </EmptyDiv>
-      <Image src={Image12} start="3" end="4" />
-      <EmptyDiv start="4" end="6" />
+        <EmptyDiv
+          start="1"
+          end="3"
+          style={{ writingMode: 'vertical-lr', rotate: '180deg' }}
+          rowStart="10"
+          rowEnd="12"
+        >
+          <Text style={{ textAlign: 'right' }}>PLAKATGESTALTUNG</Text>
+        </EmptyDiv>
+        <Image src={Image12} start="3" end="4" />
+        <EmptyDiv start="4" end="6" />
 
-      <EmptyDiv start="1" end="3" />
-      <Image src={Image13} start="3" end="4" />
-      <EmptyDiv start="4" end="6" />
+        <Image src={Image13} start="3" end="4" />
+        <EmptyDiv start="4" end="6" />
 
-      <EmptyDiv start="1" end="3" />
-      <Image src={Image14} start="3" end="6" />
+        <EmptyDiv start="1" end="3" />
+        <Image src={Image14} start="3" end="6" />
 
-      <EmptyDiv start="1" end="3" />
-      <Image src={Image15} start="3" end="6" />
+        <EmptyDiv start="1" end="3" />
+        <Image src={Image15} start="3" end="6" />
 
-      <Image src={Image16} start="1" end="3" />
-      <Image src={Image17} start="3" end="6" />
+        <Image src={Image16} start="1" end="3" />
+        <Image src={Image17} start="3" end="6" />
 
-      <Image src={Image18} start="1" end="3" />
-      <EmptyDiv start="3" end="6">
-        KARTEN/SOCIAL MEDIA
-      </EmptyDiv>
+        <Image src={Image18} start="1" end="3"  style={{objectFit:'contain'}}/>
+        <EmptyDiv start="3" end="6" style={{ writingMode: 'vertical-lr' }} rowStart="15" rowEnd="17">
+          <Text>KARTEN/SOCIAL MEDIA</Text>
+        </EmptyDiv>
 
-      <Image src={Image19} start="1" end="3" />
-      <EmptyDiv start="3" end="6" />
+        <Image src={Image19} start="1" end="3" style={{objectFit:'contain'}} />
 
-      <Image
-        style={{ border: '1px solid #707070' }}
-        src={Image20}
-        start="1"
-        end="3"
-      />
-      <Image src={Image21} start="3" end="6" />
+        <Image
+          style={{ border: '1px solid #707070', maxHeight:'565px' }}
+          src={Image20}
+          start="1"
+          end="3"
+        />
+        <Image src={Image21} start="3" end="6" rowStart="17" rowEnd="19" />
 
-      <EmptyDiv start="1" end="3" />
-      <Image src={Image22} start="3" end="6" />
+        <EmptyDiv start="1" end="3" />
+        <Image src={Image22} start="3" end="6" />
 
-      <Image height={852} src={Image23} start="1" end="3" />
-      <Image src={Image24} start="3" end="6" />
+        <Image height={852} src={Image23} start="1" end="3" />
+        <Image src={Image24} start="3" end="6" />
 
-      <Image src={Image25} start="1" end="3" />
-      <EmptyDiv start="3" end="6" />
+        <Image src={Image25} start="1" end="3" />
+        <EmptyDiv start="3" end="6" />
 
-      <Image src={Image26} start="1" end="3" />
-      <Image src={Image27} start="3" end="6" />
+        <Image src={Image26} start="1" end="3"  style={{ border: '1px solid #707070'}}/>
+        <Image src={Image27} start="3" end="6" />
 
-      <EmptyDiv start="1" end="3">
-        <Text>FOTOGRAFIE</Text>
-      </EmptyDiv>
-      <Image src={Image28} start="3" end="6" />
+        <EmptyDiv
+          start="1"
+          end="3"
+          style={{ display: 'flex', justifyContent: 'center' }}
+        >
+          <Text>FOTOGRAFIE</Text>
+        </EmptyDiv>
+        <Image src={Image28} start="3" end="6" />
 
-      <EmptyDiv start="1" end="3" />
-      <Image src={Image29} start="3" end="4" />
-      <Image src={Image30} start="4" end="6" />
+        <EmptyDiv start="1" end="3" />
+        <Image src={Image29} start="3" end="4" />
+        <Image src={Image30} start="4" end="6" />
 
-      <EmptyDiv start="1" end="3" />
-      <Image src={Image31} start="3" end="4" />
-      <EmptyDiv start="4" end="6" />
+        <EmptyDiv start="1" end="3" />
+        <Image src={Image31} start="3" end="4" />
+        <EmptyDiv start="4" end="6" />
 
-      <Image src={Image32} start="1" end="3" />
-      <Image height="373" src={Image33} start="3" end="4" />
-      <EmptyDiv start="4" end="6" />
+        <Image src={Image32} start="1" end="3"  rowStart="26" rowEnd="28"/>
+        <Image height="373" src={Image33} start="3" end="4" />
+        <EmptyDiv start="4" end="6" />
 
-      <Image src={Image34} start="1" end="3" />
-      <Image src={Image35} start="3" end="6" />
+        <Image src={Image34} start="1" end="3" />
+        <Image src={Image35} start="3" end="6" />
 
-      <EmptyDiv start="1" end="3">
-        <Text>ZEICHNUNG</Text>
-      </EmptyDiv>
-      <Image src={Image36} start="3" end="6" />
+        <EmptyDiv start="1" end="3" style={{ writingMode: 'vertical-rl' }}>
+          <Text>ZEICHNUNG</Text>
+        </EmptyDiv>
+        <Image src={Image36} start="3" end="6" />
 
-      <EmptyDiv start="1" end="3" />
-      <Image src={Image37} start="3" end="6" />
+        <EmptyDiv start="1" end="3" />
+        <Image src={Image37} start="3" end="6" />
 
-      <EmptyDiv start="1" end="3" />
-      <Image src={Image38} start="3" end="6" />
+        <EmptyDiv start="1" end="3" />
+        <Image src={Image38} start="3" end="6" />
 
-      <EmptyDiv start="1" end="3" />
-      <Image src={Image39} start="3" end="4" />
-      <EmptyDiv start="4" end="6" />
+        <EmptyDiv start="1" end="3" />
+        <Image src={Image39} start="3" end="4" />
+        <EmptyDiv start="4" end="6" />
 
-      <Image
-        style={{ border: '1px solid #707070' }}
-        src={Image40}
-        start="1"
-        end="3"
-      />
-      <Image src={Image41} start="3" end="4" />
-      <EmptyDiv start="4" end="6" />
+        <Image
+          style={{ border: '1px solid #707070' }}
+          src={Image40}
+          start="1"
+          end="3"
+        />
+        <Image src={Image41} start="3" end="4" />
+        <EmptyDiv start="4" end="6" />
 
-      <Image
-        style={{ border: '1px solid #707070' }}
-        src={Image42}
-        start="1"
-        end="3"
-      />
-      <EmptyDiv start="3" end="6">
-        <Text>Noch mehr ist bald da</Text>
-        <SmallText>
-          Keine Geduld? Gerne zeige ich im Gespräch die dazugehörigen Konzepte
-          und erläutere gerne meine Designgedanken. Zudem zeige ich nicht mit
-          aufgenommene Projekte
-        </SmallText>
-      </EmptyDiv>
+        <Image
+          style={{ border: '1px solid #707070' }}
+          src={Image42}
+          start="1"
+          end="3"
+        />
+        <EmptyDiv start="3" end="6">
+          <Text>
+            Noch mehr ist <br /> bald da.
+          </Text>
+        </EmptyDiv>
+      </Content>
+      <ScrollButton />
     </Container>
   );
 };

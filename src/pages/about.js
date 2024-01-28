@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import potrait from '../images/potrait.jpg';
 import hat from '../images/hat.png';
 import schwimmer from '../images/schwimmer.png';
 import videoclip from '../video/film.mp4';
+import ScrollButton from '../app/ScrollButton';
 
 const PotraitImage = styled.img`
   width: 182px;
@@ -24,6 +25,12 @@ const HatImage = styled.img`
   height: 41px;
   object-fit: cover;
   margin-right: 60px;
+  @media screen and (max-width: 835px) {
+    margin-right: 0px;
+  }
+  @media screen and (max-width: 835px) {
+    margin-bottom: 20px;
+  }
 `;
 
 const H1 = styled.h1`
@@ -34,16 +41,32 @@ const H1 = styled.h1`
   &.reverse {
     color: white;
   }
+  @media screen and (max-width: 835px) {
+    font-size: 5rem;
+  }
 `;
 
 const HeadlineContainer = styled.div`
   position: absolute;
   left: 0;
   bottom: 100px;
+  z-index: 700;
+  @media screen and (max-width: 835px) {
+    left: 23px;
+  }
 `;
+
 const Row = styled.div`
   display: flex;
   flex-direction: row;
+
+  &.moved {
+    transform: translate(-145px, 0px);
+    @media screen and (max-width: 1080px) {
+      transform: translate(0px, 0px);
+      flex-direction: column;
+    }
+  }
 `;
 
 const H2 = styled.h2`
@@ -52,6 +75,9 @@ const H2 = styled.h2`
   line-height: 57px;
   color: #050e20;
   transform: translate(-110px, 0px);
+  @media screen and (max-width: 1080px) {
+    transform: translate(0px, 0px);
+  }
 `;
 
 const Text = styled.p`
@@ -60,13 +86,27 @@ const Text = styled.p`
   line-height: 29px;
   color: black;
   margin: 0;
+  &.big {
+    flex: 1;
+  }
+  &.small {
+    flex: 1;
+  }
+`;
+
+const Video = styled.video`
+  object-fit: cover;
+  width: 943px;
+  height: 665px;
 `;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 69px;
-  margin-bottom: 200px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 30px;
 `;
 
 const TopContainer = styled.div`
@@ -75,18 +115,49 @@ const TopContainer = styled.div`
   position: relative;
   padding-left: 254px;
   margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+  @media screen and (max-width: 835px) {
+    width: 100%;
+    margin: 0;
+  }
+  @media screen and (max-width: 835px) {
+    padding: 0px 0px 0px 150px;
+    align-items: flex-start;
+    width: 100%;
+  }
 `;
 
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  padding: 30px;
+  max-width: 1197px;
+  box-sizing: border-box;
+  @media screen and (max-width: 1483px) {
+    padding-left: 150px;
+  }
+  @media screen and (max-width: 1080px) {
+    padding-left: 0px;
+  }
 `;
+
 const ContentContainer = styled.div`
   display: flex;
+  gap: 50px;
+  @media screen and (max-width: 835px) {
+    flex-direction: column;
+  }
 `;
 
 const Home = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    videoRef.current?.play();
+  }, []);
+
   return (
     <Container>
       <TopContainer>
@@ -102,24 +173,18 @@ const Home = () => {
           </Row>
         </HeadlineContainer>
         <PotraitImage src={potrait} />
-        <video
-          style={{ objectFit: 'cover' }}
-          width="943"
-          height="665"
-          autoplay
-          muted
-        >
+        <Video ref={videoRef} autoplay muted loop>
           <source src={videoclip} type="video/mp4"></source>
-        </video>
+        </Video>
       </TopContainer>
       <TextContainer>
         <H2>Über mich</H2>
-        <Row style={{ transform: 'translate(-145px, 0px)' }}>
+        <Row className="moved">
           <HatImage src={hat} />
           <Text style={{ marginBottom: '40px' }}>Moin ich bin Hermann,</Text>
         </Row>
         <ContentContainer>
-          <Text style={{ marginRight: '60px', maxWidth: '560px' }}>
+          <Text className="small">
             ein in Flensburg geborener Grafikdesigner, der nun in Holzkirchen
             wohnt. Bis zum Jahresende 2023 lebte ich in Mannheim, wo ich meine
             Ausbildung zum staatlich geprüften Grafikdesigner absolvierte und im
@@ -129,7 +194,7 @@ const Home = () => {
             Webmedien.
           </Text>
 
-          <Text style={{ maxWidth: '650px' }}>
+          <Text className="big">
             Es bereitet mir Freude, kreativ tätig zu sein, insbesondere bei der
             Entwicklung neuer Designs und allem, was dazugehört. Zudem liebe ich
             es, spätere Printmedien in der Hand zu halten und das Ergebnis zu
@@ -142,6 +207,7 @@ const Home = () => {
           </Text>
         </ContentContainer>
       </TextContainer>
+      <ScrollButton />
     </Container>
   );
 };

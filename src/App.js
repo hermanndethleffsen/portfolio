@@ -9,19 +9,19 @@ import Quote from './pages/quote';
 import './normalize.css';
 import './index.css';
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Header />
       <Routes>
         <Route exact path="/portfolio" element={<About />} />
-        <Route path="/portfolio/quote" element={<Quote />} />
-        <Route path="/portfolio/work" element={<Portfolio />} />
-        <Route path="/portfolio/skills" element={<Skills />} />
+        <Route path="/quote" element={<Quote />} />
+        <Route path="/work" element={<Portfolio />} />
+        <Route path="/skills" element={<Skills />} />
       </Routes>
       <Footer />
     </Router>
   );
-}
+};
 
 export default App;
