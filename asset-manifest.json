@@ -1,13 +1,14 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.ddec91c7.css",
-    "main.js": "/portfolio/static/js/main.15734ae8.js",
+    "main.js": "/portfolio/static/js/main.cfec80a1.js",
     "static/media/film.mp4": "/portfolio/static/media/film.c72b21846f24939e4cf4.mp4",
     "static/media/potrait.jpg": "/portfolio/static/media/potrait.5264cdfc776d993fe543.jpg",
     "static/media/Architektur.jpg": "/portfolio/static/media/Architektur.fefc19d6a7ada5e6e3ab.jpg",
     "static/media/Montserrat-Bold.ttf": "/portfolio/static/media/Montserrat-Bold.50f0257aa1e905f4bfaf.ttf",
     "static/media/Montserrat-Medium.ttf": "/portfolio/static/media/Montserrat-Medium.b8c6753baa964ccac1ba.ttf",
     "static/media/Montserrat-Regular.ttf": "/portfolio/static/media/Montserrat-Regular.24785cc015b27a3e964b.ttf",
+    "static/media/fish.png": "/portfolio/static/media/fish.31fbc43b45dafdea6766.png",
     "static/media/schwimmer.png": "/portfolio/static/media/schwimmer.b223e81f991c656bcac8.png",
     "static/media/Otter.jpg": "/portfolio/static/media/Otter.e8cab5a495ce0c730a02.jpg",
     "static/media/Wohnzimmer.jpg": "/portfolio/static/media/Wohnzimmer.c9e1e4686ec59b61c43f.jpg",
@@ -60,10 +61,10 @@
     "static/media/PWCINDERBLOX.ttf": "/portfolio/static/media/PWCINDERBLOX.4b1167fe9341a7d5fb07.ttf",
     "index.html": "/portfolio/index.html",
     "main.ddec91c7.css.map": "/portfolio/static/css/main.ddec91c7.css.map",
-    "main.15734ae8.js.map": "/portfolio/static/js/main.15734ae8.js.map"
+    "main.cfec80a1.js.map": "/portfolio/static/js/main.cfec80a1.js.map"
   },
   "entrypoints": [
     "static/css/main.ddec91c7.css",
-    "static/js/main.15734ae8.js"
+    "static/js/main.cfec80a1.js"
   ]
 }
